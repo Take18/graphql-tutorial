@@ -4,7 +4,7 @@ const config: CodegenConfig = {
   schema: "apollo/documents/**/*.gql",
   documents: ["apollo/documents/**/*.gql"],
   generates: {
-    "./apollo/__generated__/client": {
+    "./apollo/__generated__/client/": {
       preset: "client",
       plugins: [],
       presetConfig: {
