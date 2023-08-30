@@ -3,6 +3,7 @@ import { ApolloServer } from "@apollo/server";
 import { Resolvers } from "../../../apollo/__generated__/server/resolvers-types";
 import { readFileSync } from "fs";
 import { join } from "path";
+import { dateScalar } from "./scalar/date";
 
 const typeDefs = readFileSync(
   join(process.cwd(), "apollo/documents/schema.gql"),
@@ -10,6 +11,7 @@ const typeDefs = readFileSync(
 );
 
 const resolvers: Resolvers = {
+  Date: dateScalar,
   Query: {
     users() {
       return [{ name: "Nextjs" }, { name: "Nestjs" }, { name: "Sveltekit" }];

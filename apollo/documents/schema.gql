@@ -1,17 +1,28 @@
 schema {
-    query: Query
+  query: Query
 }
 
-type  Query {
-    users: [User!]!
+type Query {
+  users: [User!]!
 }
 
 type User {
-    name: String
+  name: String
 }
 
 query ALL_USERS {
-    users {
-        name
-    }
+  users {
+    name
+  }
+}
+
+scalar Date
+
+type Todo {
+  id: ID!
+  title: String!
+  description: String!
+  createdAt: Date!
+  updatedAt: Date!
+  deletedAt: Date
 }
