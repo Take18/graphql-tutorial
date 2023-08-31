@@ -26,3 +26,19 @@ type Todo {
   updatedAt: Date!
   deletedAt: Date
 }
+
+input AddTodoInput {
+  title: String!
+  description: String!
+}
+
+type Mutation {
+  addTodo(input: AddTodoInput!): Todo
+  updateTodo(id: ID!, input: AddTodoInput!): Todo
+  deleteTodo(id: ID!): Todo
+}
+
+type Query {
+  todos: [Todo]
+  todo(id: ID!): Todo
+}

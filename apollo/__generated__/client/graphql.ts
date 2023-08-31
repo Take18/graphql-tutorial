@@ -17,9 +17,44 @@ export type Scalars = {
   Date: { input: any; output: any; }
 };
 
+export type AddTodoInput = {
+  description: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  addTodo?: Maybe<Todo>;
+  deleteTodo?: Maybe<Todo>;
+  updateTodo?: Maybe<Todo>;
+};
+
+
+export type MutationAddTodoArgs = {
+  input: AddTodoInput;
+};
+
+
+export type MutationDeleteTodoArgs = {
+  id: Scalars['ID']['input'];
+};
+
+
+export type MutationUpdateTodoArgs = {
+  id: Scalars['ID']['input'];
+  input: AddTodoInput;
+};
+
 export type Query = {
   __typename?: 'Query';
+  todo?: Maybe<Todo>;
+  todos?: Maybe<Array<Maybe<Todo>>>;
   users: Array<User>;
+};
+
+
+export type QueryTodoArgs = {
+  id: Scalars['ID']['input'];
 };
 
 export type Todo = {
